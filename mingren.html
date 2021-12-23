@@ -4,57 +4,36 @@
 		<meta charset="utf-8">
 		<title>龙井历史</title>
 		<style type="text/css">
-		head,body{
-			margin: 0;
-			padding: 0;
-		}
-		ul{
-        list-style-type:none;
-      	margin:0px auto;
-      	padding:0px;
-      	}
-		.menu{
-			background-color:#000000;
-      	color:#ffffff;
-      	width:100%;
-      	font-weight:bold ;
-      	font-family:"bodoni mt";
-      	font-size: 18px;
-     	 }
-      	.menu ul li:nth-of-type(3){
-      	background-color: white;
-     	color: #020202;
-      	}
-      	.menu ul{
+		.head{
+      	background-color:#000000;
         width:100%;
-      	display:flex;
-     	justify-content:center;
-      	}
-      	.menu ul li{
-        width:200px;
+        display:flex;
+        justify-content:center;
+      }
+      .head div{
+      	width:200px;
       	line-height:50px;
       	text-align:center;
-     	 }
-	  body{
-        background-image:url("js/adikx-08ay2.png");
-      	background-position:center;
-      	background-repeat:no-repeat;
-          background-size: 100% 100%;
+      	color:#FFFFFF;
       }
-	  #ba{						
+	  .ba{						
 				width: 100%;
 				height: 100%;
-				min-width: 1000px;
-				min-height: 700px;
+				min-width: 500px;
+				min-height: 300px;
 				z-index: -10;
 				zoom: 1;				
 				background-image: url("js/11.jpg");
 				background-repeat:no-repeat;
 				background-size:contain;
 				background-position: center 0;
+				transition:all 2s ease 1s;
 				
 		
 	  }
+	  div:hover{
+		opacity: 70%;
+  }
 	  .lishi{
 		width:700px;
 		text-indent:2em;
@@ -62,8 +41,9 @@
 		  margin: auto;
 		  font-size:20px;
       	font-weight:bold;
-
+		 
 	  }
+	  
       a{
         width:200px;
       	line-height:50px;
@@ -77,79 +57,18 @@
 	  
 	  
 	</style>
-	    <script type="text/javascript">
-      
-			var starList = [];//存储星的数组
-			var speed = [];//星的透明度渐变速度
-			
-			//页面加载
-			function init(){
-			  createStar();
-			  starAnimate();
-			}
-			
-			//创建星
-			function createStar(){
-			  //计算星的左边距、上边距
-			  var left = Math.random() * document.body.offsetWidth;
-			  var top = Math.random() * document.body.offsetHeight;
-			  
-			  //创建星，并设置相应参数
-			  var star = document.createElement("img");//创建img标签
-			  star.src = "http://www.yyfun001.com/res/htmlclassics/full/images/star.png";//设置图片内容
-			  star.style.position = "absolute";//绝对定位
-			  star.style.left = left+"px";//左边距
-			  star.style.top = top+"px";//上边距
-			  star.style.opacity = 0;//透明度默认为0
-	  
-			  //将星添加给starList数组
-			  starList.push(star);
-			  //当前星的渐变速度
-			  speed.push(0.01);
-			  
-			  //将星添加给body
-			  document.body.appendChild(star);
-			  
-			  //每隔100毫秒创建一个星
-			  window.setTimeout("createStar()",100);
-			}
-			
-			//星的动画
-			function starAnimate(){
-			  //遍历starList数组
-			  for(var i=starList.length-1;i>=0;i--){
-				//透明度递增
-				starList[i].style.opacity = new Number(starList[i].style.opacity) + speed[i];
-				//透明度大于等于1时，透明度开始递减
-				if(starList[i].style.opacity >= 1){
-				  speed[i] *= -1;
-				}
-				
-				//透明度小于0时，将星删除
-				if(starList[i].style.opacity < 0){
-				  document.body.removeChild(starList[i]);//将星从body中删除
-				  starList.splice(i,1);//删除数组中的当前星
-				  speed.splice(i,1);//删除数组中当前星的渐变速度
-				}
-			  }
-	  
-			  //每隔5毫秒更改一次透明度
-			  window.setTimeout("starAnimate()",5);
-			}
-		  </script>
+     
 	</head>
-	<body onload="init()">
+	<body>
 
-		<div class="menu">
-			<ul>
-			  <li></a>制茶过程</li>
-			  <li><a href="index.html" >十大名茶</a></li>
-			  <li><a href="lishi.html" >相关历史</a></li>
-			  <li><a href="mingren.html" >名人趣事</a></li>
-			  <li><a href="shipin.html" >冲泡方法</a></li>
-			</ul>
-		  </div>
-		<div id="ba"> 
+		<div class="head">
+		<div>制茶过程</div>
+		<div><a href="index.html" >十大名茶</a></div>
+		<div><a href="lishi.html" >相关历史</a></div>
+		<div>名人趣事</div>
+		<div><a href="shipin.html" >冲泡方法</a></div>
+		</div>
+		<div class="ba"> 
 		<div class="lishi">
 			<p>西湖龙井位列十大名茶之首，无论人喝不喝茶，懂不懂茶，几乎都知道西湖龙井。
                 其实西湖龙井闻名天下，不止是因为其自身的特点，也与很多历史上的传说，有着密不可分的关系。其中最广为流传的，当然要数乾隆和龙井的渊源。</p>
